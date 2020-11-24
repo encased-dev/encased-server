@@ -43,11 +43,8 @@ app.get("/token/:id", async function (req, res) {
   if (!exists) {
     res.sendStatus(404);
   } else {
-    let response = createMetadata(req.params.id);
-    let tokenSymbol = await getTokenData(
-      "0xb7a4f3e9097c08da09517b5ab877f7a917224ede"
-    );
-    res.json({ ...response, symbol: tokenSymbol });
+    let response = createMetadata(req.params.id); 
+    res.json({ ...response });
   }
 });
 
