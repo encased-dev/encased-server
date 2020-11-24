@@ -4,7 +4,7 @@ import abi from "./abi.json";
 import axios from "axios";
 import Web3 from "web3";
 import { createImage, createMetadata } from "./metadata.js";
-import HDWalletProvider from "truffle-hdwallet-provider";
+import HDWalletProvider from "truffle-hdwallet-provider-privkey";
 dotenv.config();
 const key = Buffer.from(process.env.KOVAN_PRIVATE_KEY, "hex");
 const provider = new HDWalletProvider([key], process.env.RPC_URL_KOVAN);
