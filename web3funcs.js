@@ -7,6 +7,7 @@ import { createImage, createMetadata } from "./metadata.js";
 import HDWalletProvider from "truffle-hdwallet-provider-privkey";
 dotenv.config();
 const key = Buffer.from(process.env.KOVAN_PRIVATE_KEY, "hex");
+console.log(key);
 const provider = new HDWalletProvider([key], process.env.RPC_URL_KOVAN);
 export const web3 = new Web3(provider);
 
