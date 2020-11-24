@@ -1,15 +1,15 @@
 import dotenv from "dotenv";
+dotenv.config();
 import moment from "moment";
 import abi from "./abi.json";
 import axios from "axios";
 import Web3 from "web3";
 import { createImage, createMetadata } from "./metadata.js";
 import HDWalletProvider from "truffle-hdwallet-provider-privkey";
-dotenv.config();
-const key = Buffer.from(process.env.KOVAN_PRIVATE_KEY, "hex");
-console.log(key.toString());
+
+console.log(`this should work, ${process.env}`);
 const provider = new HDWalletProvider(
-  [key.toString()],
+  [process.env.KOVAN_PRIVATE_KEY],
   process.env.RPC_URL_KOVAN
 );
 export const web3 = new Web3(provider);

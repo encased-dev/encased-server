@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+dotenv.config();
 import { createImage, createMetadata } from "./metadata.js";
 import { checkExists, getTokenData } from "./web3funcs.js";
 import express from "express";
@@ -43,7 +45,7 @@ app.get("/token/:id", async function (req, res) {
   if (!exists) {
     res.sendStatus(404);
   } else {
-    let response = createMetadata(req.params.id); 
+    let response = createMetadata(req.params.id);
     res.json({ ...response });
   }
 });
