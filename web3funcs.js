@@ -4,10 +4,10 @@ import abi from "./abi.json";
 import axios from "axios";
 import Web3 from "web3";
 import { createImage, createMetadata } from "./metadata.js";
-import HDWalletProvider from "truffle-hdwallet-provider-privkey";
+import HDWalletProvider from "truffle-hdwallet-provider";
 dotenv.config();
 const provider = new HDWalletProvider(
-  [process.env.KOVAN_PRIVATE_KEY],
+  process.env.MNEMONIC,
   process.env.RPC_URL_KOVAN
 );
 export const web3 = new Web3(provider);
@@ -16,6 +16,7 @@ export const token = new web3.eth.Contract(abi, process.env.CONTRACT_ADDRESS);
 
 export const getTokenBalance = async (tokenId) => {
   let data = await token.methods.getAllBalancesPerBoxToken(tokenId).call();
+  //TODO
   console.log(data);
 };
 
