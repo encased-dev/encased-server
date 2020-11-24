@@ -29,11 +29,13 @@ export const checkExists = async (tokenId) => {
     console.log(error);
     return false;
   }
-  return false;
 };
 
 export const getTokenData = async (address) => {
   let ethplorerURL = `https://kovan-api.ethplorer.io/getTokenInfo/${address}?apiKey=${process.env.ETHPLORER_API_KEY}`;
   let token = await axios.get(ethplorerURL);
-  return token.data.symbol;
+  if (token.data) {
+    return token.data.symbol;
+  }
+  return false;
 };
