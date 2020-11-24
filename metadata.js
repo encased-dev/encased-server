@@ -18,7 +18,4 @@ export const createMetadata = (tokenId) => {
 
 export const createImage = (tokenId) => {
   return jdenticon.toPng(tokenId, 400);
-  // let path = `./${tokenId}.png`;
-  // fs.writeFileSync(path, data);
-  // return pinFileToIPFS(path, tokenId);
 };
